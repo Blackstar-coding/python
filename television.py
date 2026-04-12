@@ -26,13 +26,12 @@ class Television:
         """
         self.__status = False
         self.__muted = False
-        self.__volume = self.MIN_VOLUME
-        self.__channel = self.MIN_CHANNEL
+        self.__volume = Television.MIN_VOLUME
+        self.__channel = Television.MIN_CHANNEL
         
     def power(self) -> None:
         """
         Method to turn the power on and off
-        :param power: Stores the status variable
         """
         
         power = self.__status
@@ -44,7 +43,6 @@ class Television:
     def mute(self) -> None:
         """
         Method to mute and unmute the television
-        :param mute: Stores the muted variable
         """
         
         mute = self.__muted
@@ -57,7 +55,6 @@ class Television:
         """
         Method to increase the channel
         Loops back to minimum channel when attempting to increase passed maximum channel
-        :param channel: Stores the channel variable
         """
         
         channel = self.__channel
@@ -71,7 +68,6 @@ class Television:
         """
         Method to decrease the channel
         Loops to the maximum channel when attempting to decreased passed the minimum channel
-        :param channel: Stores the channel variable
         """
         
         channel = self.__channel
@@ -108,9 +104,7 @@ class Television:
         """
         Method to return the television's power, channel, and volume
         Volume is returned as zero if the television is muted and on
-        :param power: Stores the status variable
-        :param channel: Stores the channel variable
-        :param volume: Stores the volume variable
+        :return: Television's power, channel, and volume
         """
         power = self.__status
         channel = self.__channel

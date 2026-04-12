@@ -9,71 +9,70 @@ class Test:
         del self.t1
         
     def test_init(self):
-        assert self.t1._Television__status == False
-        assert self.t1._Television__muted == False
-        assert self.t1._Television__volume == 0
-        assert self.t1._Television__channel == 0
+        assert self.t1.__str__() == "Power = False, Channel = 0, Volume = 0"
         
     def test_power(self):
         self.t1.power()
-        assert self.t1._Television__status == True
+        assert self.t1.__str__() == "Power = True, Channel = 0, Volume = 0"
         self.t1.power()
-        assert self.t1._Television__status == False
+        assert self.t1.__str__() == "Power = False, Channel = 0, Volume = 0"
         
     def test_mute(self):
         self.t1.power()
-        assert self.t1._Television__muted == False
+        self.t1.volume_up()
+        self.t1.volume_up()
+        assert self.t1.__str__() == "Power = True, Channel = 0, Volume = 2"
         self.t1.mute()
-        assert self.t1._Television__muted == True
+        assert self.t1.__str__() == "Power = True, Channel = 0, Volume = 0"
         self.t1.mute()
-        assert self.t1._Television__muted == False
+        assert self.t1.__str__() == "Power = True, Channel = 0, Volume = 2"
         
     def test_channel_up(self):
         self.t1.power()
-        assert self.t1._Television__channel == 0
+        assert self.t1.__str__() == "Power = True, Channel = 0, Volume = 0"
         self.t1.channel_up()
-        assert self.t1._Television__channel == 1
+        assert self.t1.__str__() == "Power = True, Channel = 1, Volume = 0"
         self.t1.channel_up()
-        assert self.t1._Television__channel == 2
+        assert self.t1.__str__() == "Power = True, Channel = 2, Volume = 0"
         self.t1.channel_up()
-        assert self.t1._Television__channel == 3
+        assert self.t1.__str__() == "Power = True, Channel = 3, Volume = 0"
         self.t1.channel_up()
-        assert self.t1._Television__channel == 0
+        assert self.t1.__str__() == "Power = True, Channel = 0, Volume = 0"
         
     def test_channel_down(self):
         self.t1.power()
-        assert self.t1._Television__channel == 0
+        assert self.t1.__str__() == "Power = True, Channel = 0, Volume = 0"
         self.t1.channel_down()
-        assert self.t1._Television__channel == 3
+        assert self.t1.__str__() == "Power = True, Channel = 3, Volume = 0"
         self.t1.channel_down()
-        assert self.t1._Television__channel == 2
+        assert self.t1.__str__() == "Power = True, Channel = 2, Volume = 0"
         self.t1.channel_down()
-        assert self.t1._Television__channel == 1
+        assert self.t1.__str__() == "Power = True, Channel = 1, Volume = 0"
         self.t1.channel_down()
-        assert self.t1._Television__channel == 0
+        assert self.t1.__str__() == "Power = True, Channel = 0, Volume = 0"
         
     def test_volume_up(self):
         self.t1.power()
-        assert self.t1._Television__volume == 0
+        assert self.t1.__str__() == "Power = True, Channel = 0, Volume = 0"
         self.t1.volume_up()
-        assert self.t1._Television__volume == 1
+        assert self.t1.__str__() == "Power = True, Channel = 0, Volume = 1"
         self.t1.volume_up()
-        assert self.t1._Television__volume == 2
+        assert self.t1.__str__() == "Power = True, Channel = 0, Volume = 2"
         self.t1.volume_up()
-        assert self.t1._Television__volume == 2
+        assert self.t1.__str__() == "Power = True, Channel = 0, Volume = 2"
         
     def test_volume_down(self):
         self.t1.power()
-        assert self.t1._Television__volume == 0
+        assert self.t1.__str__() == "Power = True, Channel = 0, Volume = 0"
         self.t1.volume_down()
-        assert self.t1._Television__volume == 0
+        assert self.t1.__str__() == "Power = True, Channel = 0, Volume = 0"
         self.t1.volume_up()
         self.t1.volume_up()
-        assert self.t1._Television__volume == 2
+        assert self.t1.__str__() == "Power = True, Channel = 0, Volume = 2"
         self.t1.volume_down()
-        assert self.t1._Television__volume == 1
+        assert self.t1.__str__() == "Power = True, Channel = 0, Volume = 1"
         self.t1.volume_down()
-        assert self.t1._Television__volume == 0
+        assert self.t1.__str__() == "Power = True, Channel = 0, Volume = 0"
         
     
 if __name__ == "__main__":
